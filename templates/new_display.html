@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm">
+
+            <a href= "{{ url_for('homepage', order_by='submission_time', order_direction='asc') }}"><input type="button" class="btn btn-outline-secondary" value="Sorted by Time" ></a>
+
+            <a href= "{{ url_for('homepage', order_by='view_number', order_direction='asc') }}"><input type="button" class="btn btn-outline-secondary" value="Sorted by Views" ></a>
+
+            <a href= "{{ url_for('homepage', order_by='vote_number', order_direction='asc') }}"><input type="button" class="btn btn-outline-secondary" value="Sorted by Votes" ></a>
+
+            <a href= "{{ url_for('homepage', order_by='title', order_direction='asc') }}"><input type="button" class="btn btn-outline-secondary" value="Sorted by Title" ></a>
+
+            <a href= "{{ url_for('homepage', order_by='message', order_direction='asc') }}"><input type="button" class="btn btn-outline-secondary" value="Sorted by Question" ></a>
+        </div>
+        <!-- Search form -->
+        <div>
+            <form action="{{ url_for("search", search=search) }}" method='GET'>
+                <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="pb-3">
+        {% for question in questions %}
+        <div class="content-section p-3">
+            <h3>{{question.title}}<small2 class="text-muted padding-right"><a href= "{{ url_for('disp_answers', id=question.id)}}"><input type="button" class="btn btn-outline-secondary" value="Answers"></a></small2>
+            </h3>
+                <div class="border-top pt-2 pb-3">
+                        <small class="text-muted float-left">Vote number: {{question.vote_number}} <a class="ml-2" >Views: {{ question.view_number }}</a></small>
+                        <small class="text-muted float-right">{{question.submission_time}} <a class="ml-2" >Posted by: {{ question.username }}</a></small>
+                </div>
+        </div>
+        {%endfor%}
+    </div>
+
+
+{% endblock content %}

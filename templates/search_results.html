@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<table>
+
+    {%for item in result%}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.submission_time}}</td>
+            <td>{{item.view_number}}</td>
+            <td>{{item.vote_number }}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.message }}</td>
+        </tr>
+    {%endfor%}
+
+{% endblock %}

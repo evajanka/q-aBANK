@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1> {{ username }}</h1><br>
+<hr>
+<h4>Questions:</h4>
+<br>
+<table class="table table-bordered table-hover">
+<thead class="text-center">
+    <tr>
+        {%for title in header%}
+            <th>{{ title }}</th>
+        {% endfor %}
+    </tr>
+</thead>
+
+<tbody>
+    {%for question in questions%}
+        <tr>
+            <td>{{question.id}}</td>
+            <td>{{question.title}} </td>
+            <td>{{question.message}}</td>
+            <td>{{ question.submission_time }}</td>
+        </tr>
+    {%endfor%}
+
+</tbody>
+
+</table>
+
+<hr>
+
+<h4>Answers:</h4>
+<br>
+<table class="table table-bordered table-hover">
+<thead class="text-center">
+    <tr>
+        {%for title in header%}
+            <th>{{ title }}</th>
+        {% endfor %}
+    </tr>
+</thead>
+
+<tbody>
+    {%for answer in answers%}
+        <tr>
+            <td>{{ answer.question_id }}</td>
+            <td>{{answer.title}} </td>
+            <td>{{answer.message}}</td>
+            <td>{{ answer.submission_time }}</td>
+        </tr>
+    {%endfor%}
+
+</tbody>
+
+</table>
+
+{%  endblock %}

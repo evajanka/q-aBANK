@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class="content-section">
+    <form action="{{ url_for("search", search=search) }}" method='GET'>
+        <label for="search"> Search in question database </label><br>
+        <input type="text" name="search" id="search" /><br/><br/>
+        <input class="button" type="submit" value="Search"><br><br>
+    </form>
+</div>
+
+{% endblock %}

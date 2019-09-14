@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+    {%for column in question%}
+        <div class="card bg-light mb-3">
+          <div class="card-header">
+            <h4>{{column.title}}</h4>
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p>{{column.message}}</p>
+              <footer class="blockquote-footer float-right">Posted by: <cite title="Source Title">{{ column.username }}</cite></footer>
+            </blockquote>
+          </div>
+            <div class="card-footer text-muted">
+                <a class="ml-2"> Vote number: {{column.vote_number}}</a><a class="ml-2" >Views: {{ column.view_number }}</a>
+                <a class="float-right">{{column.submission_time}}</a>
+            </div>
+         </div>
+    {% endfor%}
+     <!-- Comment -->
+    <h3>Answers:</h3>
+    {% for elem in answer %}
+        <div class="media border p-3">
+          <div class="media-body">
+            <h4>@{{ elem.username }}<small class="float-right"><i>Posted on {{elem.submission_time}}</i></small></h4>
+            <p>{{ elem.message }}</p>
+          </div>
+        </div>
+    {% endfor%}
+    <!-- Add Answer-->
+    <div class="row bootstrap snippets">
+    <div class="col-md-12 col-md-offset-2 col-sm-12">
+        <div class="comment-wrapper">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <form action="{{ url_for("add_answer", id=id) }}" method='POST'>
+                        <label for='message'></label>
+                        <textarea class="form-control" name="message" id="message" placeholder="Write an answer..." rows="3"></textarea>
+                        <br>
+                        <input type="submit" id="submit" value="Post" class="btn btn-info pull-right">
+                        <div class="clearfix"></div>
+                        <hr>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

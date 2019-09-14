@@ -1,0 +1,11 @@
+ <a class="nav-item nav-link" href="list">All questions</a>
+              <a class="nav-item nav-link" href="add_question">Ask Question</a>
+                <a class="nav-item nav-link" href="search_bar">Search</a>
+            </div>
+               <div class="navbar-nav">
+                   <a class="nav-item nav-link" href="/login">Login</a>
+                   <a class="nav-item nav-link" href="/registration">Register</a>
+
+
+
+                   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='bootstrap.css') }}">

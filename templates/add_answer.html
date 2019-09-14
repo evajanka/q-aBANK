@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <form action="{{ url_for("add_answer", id=question_id) }}" method='POST'>
+        <p>
+            <label for='message'>Answer</label><br>
+            <input type="text" name="message" id="message" required style="width: 400px; height: 100px;">
+        </p>
+        <p>
+            <input type="submit" id="submit" value="submit">
+        </p>
+    </form>
+    <br>
+    <br>
+
+
+{% endblock content %}

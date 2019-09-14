@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form action="{{ url_for("add_question") }}" method='POST'>
+            <p>
+                <label for="title"> Question Title </label><br>
+                <input type="text" name="title" id="title" class="form-control">
+            </p>
+            <p>
+                <label for='message'>Question</label><br>
+                <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+{#                <input type="text" name="message" id="message"  class="form-control-label" >#}
+            </p>
+            <p>
+                <input type="submit" id="submit" value="Submit" class="btn btn-outline-secondary">
+            </p>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                <a class="ml-2" href="{{  url_for('homepage')}}">Back to homepage</a>
+             </small>
+        </div>
+    </div>
+{% endblock content %}

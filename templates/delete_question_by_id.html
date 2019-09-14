@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<table>
+
+    {%for item in result%}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.submission_time}}</td>
+            <td>{{item.view_number}}</td>
+            <td>{{item.vote_number }}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.message }}</td>
+        </tr>
+    {%endfor%}
+
+<hr>
+
+<form action="{{ url_for("delete") }}" method='POST'>
+    <label for="Delete"> Delete question by ID </label><br>
+    <input type="number" name="delete" id="delete" ><br>
+    <input type="submit" class="submit" value="Delete"><br><br>
+</form>
+
+
+{% endblock %}
